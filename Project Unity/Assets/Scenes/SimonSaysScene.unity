@@ -3500,44 +3500,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
-    - target: {fileID: 61882446935588518, guid: 3331f58498453644598acdf8dd9236e6,
-        type: 2}
-      propertyPath: m_AutoTiling
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4542456629629262, guid: 3331f58498453644598acdf8dd9236e6, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4542456629629262, guid: 3331f58498453644598acdf8dd9236e6, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 61882446935588518, guid: 3331f58498453644598acdf8dd9236e6,
-        type: 2}
-      propertyPath: m_UsedByComposite
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 61882446935588518, guid: 3331f58498453644598acdf8dd9236e6,
-        type: 2}
-      propertyPath: m_UsedByEffector
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 61882446935588518, guid: 3331f58498453644598acdf8dd9236e6,
-        type: 2}
-      propertyPath: m_Offset.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 61882446935588518, guid: 3331f58498453644598acdf8dd9236e6,
-        type: 2}
-      propertyPath: m_Size.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 212465556572951814, guid: 3331f58498453644598acdf8dd9236e6,
-        type: 2}
-      propertyPath: m_DrawMode
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3331f58498453644598acdf8dd9236e6, type: 2}
   m_IsPrefabAsset: 0
@@ -3553,6 +3515,7 @@ GameObject:
   - component: {fileID: 786440690}
   - component: {fileID: 786440687}
   - component: {fileID: 786440691}
+  - component: {fileID: 786440692}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -3579,7 +3542,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!212 &786440688
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3677,6 +3640,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isJumping: 0
   jumpPower: 0
+--- !u!61 &786440692
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 786440686}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.5026355}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 0.32, y: 0.32}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 0.13181114}
+  m_EdgeRadius: 0
 --- !u!1 &799896111
 GameObject:
   m_ObjectHideFlags: 0
