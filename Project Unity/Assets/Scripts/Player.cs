@@ -11,23 +11,28 @@ public class Player : MonoBehaviour {
     public bool isJumping;
     public float jumpPower;
 
+    public float extraJumpTime = 0.55f;
+    public float extraJumpAscendTime = 0.4f;
+    public float extraJumpPower = 0.55f;
+
     // Use this for initialization
     void Start () {
         rb = GetComponent<Rigidbody2D>();
+        rb.gravityScale = 2f;
     }
 	
 	// Update is called once per frame
 	void Update () {
-        float x = Input.GetAxisRaw("Horizontal") * 6;
+        float x = Input.GetAxisRaw("Horizontal") * 5;
 
         rb.velocity = new Vector2(x, rb.velocity.y);
 
         if (Input.GetButtonDown("Jump") && isJumping == false)
         {
             isJumping = true;
-            jumpMaxTime = Time.time + 0.65f;
+            jumpMaxTime = Time.time + extraJumpTime;
             jumpTime = 0;
-            jumpPower = 3.0f;
+            jumpPower = extraJumpPower;
         }
 
         if (Input.GetButton("Jump") && Time.time < jumpMaxTime)
@@ -36,9 +41,9 @@ public class Player : MonoBehaviour {
 
             rb.velocity = new Vector2(rb.velocity.x, jumpPower);
 
-            if (jumpTime < 0.45f)
+            if (jumpTime < extraJumpAscendTime)
             {
-                if (jumpPower < 8)
+                if (jumpPower < 6)
                 {
                     jumpPower *= 1.3f;
                 }
@@ -47,7 +52,6 @@ public class Player : MonoBehaviour {
             {
                 jumpPower *= 0.8f;
             }
-
         }
 
         if (Input.GetButtonUp("Jump"))
