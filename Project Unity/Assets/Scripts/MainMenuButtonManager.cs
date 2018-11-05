@@ -12,7 +12,9 @@ public class MainMenuButtonManager : MonoBehaviour {
     {
         switch (name)
         {
-            case "start":
+            case "play":
+                Debug.Log("Pressed play");
+                UnityEngine.SceneManagement.SceneManager.LoadScene("SimonSaysScene", UnityEngine.SceneManagement.LoadSceneMode.Single);
                 break;
             case "howtoplay":
                 CloseAllMenus(menus[0]);

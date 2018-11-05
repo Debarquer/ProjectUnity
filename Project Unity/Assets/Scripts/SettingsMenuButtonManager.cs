@@ -12,8 +12,6 @@ public class SettingsMenuButtonManager : MonoBehaviour {
     {
         switch (name)
         {
-            case "start":
-                break;
             case "gameplay":
                 CloseAllMenus();
                 menus[0].SetActive(true);
@@ -25,9 +23,6 @@ public class SettingsMenuButtonManager : MonoBehaviour {
             case "audio":
                 CloseAllMenus();
                 menus[2].SetActive(true);
-                break;
-            case "quit":
-                Application.Quit();
                 break;
         }
     }

@@ -13,16 +13,17 @@ public class Player : MonoBehaviour {
 
     public float extraJumpTime = 0.55f;
     public float extraJumpAscendTime = 0.4f;
+    public float extraJumpPower = 0.55f;
 
     // Use this for initialization
     void Start () {
         rb = GetComponent<Rigidbody2D>();
-        rb.gravityScale = 2.5f;
+        rb.gravityScale = 2f;
     }
 	
 	// Update is called once per frame
 	void Update () {
-        float x = Input.GetAxisRaw("Horizontal") * 6;
+        float x = Input.GetAxisRaw("Horizontal") * 5;
 
         rb.velocity = new Vector2(x, rb.velocity.y);
 
@@ -31,7 +32,7 @@ public class Player : MonoBehaviour {
             isJumping = true;
             jumpMaxTime = Time.time + extraJumpTime;
             jumpTime = 0;
-            jumpPower = 0.55f;
+            jumpPower = extraJumpPower;
         }
 
         if (Input.GetButton("Jump") && Time.time < jumpMaxTime)
