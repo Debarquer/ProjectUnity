@@ -14,14 +14,23 @@ public class SettingsMenuButtonManager : MonoBehaviour {
         {
             case "gameplay":
                 CloseAllMenus();
+                ResetAllButtonColors();
+
+                buttons[0].GetComponent<Image>().color = Color.grey;
                 menus[0].SetActive(true);
                 break;
             case "graphics":
                 CloseAllMenus();
+                ResetAllButtonColors();
+
+                buttons[1].GetComponent<Image>().color = Color.grey;
                 menus[1].SetActive(true);
                 break;
             case "audio":
                 CloseAllMenus();
+                ResetAllButtonColors();
+
+                buttons[2].GetComponent<Image>().color = Color.grey;
                 menus[2].SetActive(true);
                 break;
         }
@@ -32,6 +41,14 @@ public class SettingsMenuButtonManager : MonoBehaviour {
         foreach (GameObject menu in menus)
         {
             menu.SetActive(false);
+        }
+    }
+
+    void ResetAllButtonColors()
+    {
+        foreach (Button button in buttons)
+        {
+            button.GetComponent<Image>().color = Color.white;
         }
     }
 }

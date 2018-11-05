@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Fire : MonoBehaviour {
+public class SaveObject : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
@@ -16,7 +16,7 @@ public class Fire : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        FindObjectOfType<Player>().ChangeTimer(-5f);
+        FindObjectOfType<Player>().ChangeScore(5);
         Destroy(gameObject);
     }
 }
