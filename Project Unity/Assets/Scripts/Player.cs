@@ -96,15 +96,25 @@ public class Player : MonoBehaviour {
             }
         }
 
-      
 
+        
         else
         {
-          
+         
             float x = CrossPlatformInputManager.GetAxisRaw("Horizontal") * 5;
 
             rb.velocity = new Vector2(x, rb.velocity.y);
 
+            if (rb.velocity.y < 0 )
+            {
+                _animator.SetBool("IsJumping", false);
+                _animator.SetBool("IsFalling", true);
+            }
+            else
+            {
+                _animator.SetBool("IsFalling", false);
+
+            }
             if (x != 0 ) // 
             {
                 transform.localScale = new Vector2(Mathf.Sign(x), 1);
