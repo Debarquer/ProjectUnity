@@ -526,3 +526,5 @@ sysinfo.txt
 # Local History for Visual Studio
 
 # End of https://www.gitignore.io/api/unity,csharp,visualstudio
+Project Unity/Assets/Plugins/GitHub/Editor/x64.meta
+Project Unity/Assets/Plugins/GitHub/Editor/x86.meta
