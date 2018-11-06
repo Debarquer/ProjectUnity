@@ -105,14 +105,14 @@ public class Player : MonoBehaviour {
 
             rb.velocity = new Vector2(x, rb.velocity.y);
 
-            if (x != 0) // 
+            if (x != 0 ) // 
             {
                 transform.localScale = new Vector2(Mathf.Sign(x), 1);
-                _animator.SetBool("isRunning", true);
+                _animator.SetBool("IsRunning", true);
             }
             else if (x == 0)
             {
-                _animator.SetBool("isRunning", false);
+                _animator.SetBool("IsRunning", false);
            
             }
 
@@ -120,6 +120,7 @@ public class Player : MonoBehaviour {
 
             if (CrossPlatformInputManager.GetButtonDown("Jump") && isJumping == false)
             {
+                _animator.SetBool("IsJumping", true);
                 isJumping = true;
                 jumpMaxTime = Time.time + extraJumpTime;
                 jumpTime = 0;
@@ -156,6 +157,7 @@ public class Player : MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D collision)
     {
         isJumping = false;
+        _animator.SetBool("IsJumping", false);
     }
 
     public void ChangeScore(int d)
