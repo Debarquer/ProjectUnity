@@ -41,3 +41,21 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background
+    uniqueID: 3012139971
+    locked: 0
+  - name: Walls
+    uniqueID: 3609706335
+    locked: 0
+  - name: Decoration
+    uniqueID: 4047089367
+    locked: 0
+  - name: Floor Background
+    uniqueID: 3964971007
+    locked: 0
+  - name: Platforms and obstacles
+    uniqueID: 1205874701
+    locked: 0
+  - name: Actors and objects
+    uniqueID: 3193020187
+    locked: 0
