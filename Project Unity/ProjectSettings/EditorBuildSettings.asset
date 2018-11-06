@@ -5,10 +5,13 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MainMenu.unity
     guid: 13b1b0411a9e0604c8667436b49ce0a8
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SimonSaysScene.unity
     guid: 2edadf1214df90e4baaad30626b4dc24
+  - enabled: 1
+    path: Assets/Scenes/SimonSaysSceneVol2.unity
+    guid: 7b2b84a69fdb7e44ea08e55a6142c67b
   m_configObjects: {}
