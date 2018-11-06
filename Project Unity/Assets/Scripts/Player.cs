@@ -27,10 +27,19 @@ public class Player : MonoBehaviour {
 
     public float androidX = 0;
 
+
     // Use this for initialization
+
     void Start () {
+
         rb = GetComponent<Rigidbody2D>();
         rb.gravityScale = 2f;
+    }
+
+    private Animator _animator;
+    private void Awake()
+    {
+        _animator = GetComponent<Animator>();
     }
 
     public void setAndroidX(float force)
@@ -41,8 +50,12 @@ public class Player : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        timer -= Time.deltaTime;
-        timerText.text = "Time left: " + (int)timer;
+        if(timerText != null)
+        {
+            timer -= Time.deltaTime;
+            timerText.text = "Time left: " + (int)timer;
+        }
+        
 
         if (false)//Application.platform == RuntimePlatform.Android
         {
@@ -82,11 +95,28 @@ public class Player : MonoBehaviour {
                 jumpMaxTime = 0;
             }
         }
+
+      
+
         else
         {
+          
             float x = CrossPlatformInputManager.GetAxisRaw("Horizontal") * 5;
 
             rb.velocity = new Vector2(x, rb.velocity.y);
+
+            if (x != 0) // 
+            {
+                transform.localScale = new Vector2(Mathf.Sign(x), 1);
+                _animator.SetBool("isRunning", true);
+            }
+            else if (x == 0)
+            {
+                _animator.SetBool("isRunning", false);
+           
+            }
+
+
 
             if (CrossPlatformInputManager.GetButtonDown("Jump") && isJumping == false)
             {
