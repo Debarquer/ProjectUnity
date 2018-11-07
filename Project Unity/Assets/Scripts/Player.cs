@@ -185,6 +185,7 @@ public class Player : MonoBehaviour {
 
     public void ChangeTimer(float d)
     {
+<<<<<<< Updated upstream
         if(timerText != null)
         {
             timer += d;
@@ -195,6 +196,14 @@ public class Player : MonoBehaviour {
             Debug.Log("Player does not have a reference to timer");
         }
 
+=======
+        if (timerText != null)
+        {
+            timer += d;
+         timerText.text = "Time left: " + (int)timer;
+        }
+       
+>>>>>>> Stashed changes
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
