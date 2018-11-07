@@ -172,14 +172,29 @@ public class Player : MonoBehaviour {
 
     public void ChangeScore(int d)
     {
-        score += d;
-        scoreText.text = "Score: " + score;
+        if(scoreText != null)
+        {
+            score += d;
+            scoreText.text = "Score: " + score;
+        }
+        else
+        {
+            Debug.Log("Player does not have a reference to score");
+        }
     }
 
     public void ChangeTimer(float d)
     {
-        timer += d;
-        timerText.text = "Time left: " + (int)timer;
+        if(timerText != null)
+        {
+            timer += d;
+            timerText.text = "Time left: " + (int)timer;
+        }
+        else
+        {
+            Debug.Log("Player does not have a reference to timer");
+        }
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
