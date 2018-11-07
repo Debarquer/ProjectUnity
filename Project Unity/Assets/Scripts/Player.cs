@@ -181,4 +181,14 @@ public class Player : MonoBehaviour {
         timer += d;
         timerText.text = "Time left: " + (int)timer;
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        collision.gameObject.GetComponent<SpriteRenderer>().color = new Color(255, 0, 255);
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        collision.gameObject.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255);
+    }
 }
