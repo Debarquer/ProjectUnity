@@ -31,6 +31,8 @@ public class Player : MonoBehaviour {
 
     public float androidX = 0;
 
+    public GameObject SmokePE;
+
 
     // Use this for initialization
 
@@ -167,11 +169,12 @@ public class Player : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        collision.gameObject.GetComponent<SpriteRenderer>().color = new Color(255, 0, 255);
+        if (collision.gameObject.tag == "Enemy")
+        {
+            Destroy(collision.gameObject);
+            FindObjectOfType<Player>().ChangeTimer(-5f);
+            Instantiate(SmokePE, collision.transform.position, collision.transform.rotation);
+        }
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        collision.gameObject.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255);
-    }
 }

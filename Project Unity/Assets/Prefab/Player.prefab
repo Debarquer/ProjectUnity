@@ -398,6 +398,7 @@ MonoBehaviour:
   extraJumpAscendTime: 0.4
   extraJumpPower: 0.25
   androidX: 0
+<<<<<<< HEAD
 --- !u!114 &114939935741848100
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -415,6 +416,10 @@ MonoBehaviour:
   shootSound: {fileID: 82528255897551058}
   fireRate: 1
 --- !u!212 &212862410711933188
+=======
+  SmokePE: {fileID: 1373689303006204, guid: 869aaa8d8d387c14187f562eede599b2, type: 2}
+--- !u!212 &212743626718542304
+>>>>>>> 2c2d2bef13402b7c87632d4f3790a9e3b028f864
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
