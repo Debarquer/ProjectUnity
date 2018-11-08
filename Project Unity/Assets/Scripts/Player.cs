@@ -51,9 +51,9 @@ public class Player : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        if(timerText != null)
+        timer -= Time.deltaTime;
+        if (timerText != null)
         {
-            timer -= Time.deltaTime;
             timerText.text = "Time left: " + (int)timer;
         }
     
@@ -137,9 +137,9 @@ public class Player : MonoBehaviour {
 
     public void ChangeScore(int d)
     {
-        if(scoreText != null)
+        score += d;
+        if (scoreText != null)
         {
-            score += d;
             scoreText.text = "Score: " + score;
         }
         else
@@ -150,24 +150,15 @@ public class Player : MonoBehaviour {
 
     public void ChangeTimer(float d)
     {
-
-        if(timerText != null)
+        timer += d;
+        if (timerText != null)
         {
-            timer += d;
             timerText.text = "Time left: " + (int)timer;
         }
         else
         {
             Debug.Log("Player does not have a reference to timer");
-        }
-
-
-        if (timerText != null)
-        {
-            timer += d;
-         timerText.text = "Time left: " + (int)timer;
-        }
-       
+        }       
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

@@ -20,9 +20,13 @@ public class SaveObject : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if(scoreManager != null)
+        {
+            scoreManager.NrOfTingsToSave -= 1;
+        }
+
         GetComponent<BoxCollider2D>().enabled = false;
         player.ChangeScore(5);
-        scoreManager.NrOfTingsToSave -= 1;
         Destroy(gameObject);
     }
 }
