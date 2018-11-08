@@ -9,26 +9,32 @@ public class Fire : MonoBehaviour {
     Rigidbody2D myBody;
     Transform myTrans;
     float myWidth;
+    float myHeight;
 
 	// Use this for initialization
 	void Start ()
     {
         myTrans = this.transform;
         myBody = this.GetComponent<Rigidbody2D>();
-        myWidth = this.GetComponent<SpriteRenderer>().bounds.extents.x;
-        
+        SpriteRenderer mySprite = this.GetComponent<SpriteRenderer>();
+        myWidth = mySprite.bounds.extents.x;
+        myHeight = mySprite.bounds.extents.y;
 
-	}
+
+    }
 
     private void FixedUpdate()
     {
         // check if there is ground infront
-     Vector2 lineCastPosition = myTrans.position - myTrans.right * (myWidth/2);
-        Debug.DrawLine(lineCastPosition, lineCastPosition + Vector2.down);
-        bool isGrounded = Physics2D.Linecast(lineCastPosition, lineCastPosition + Vector2.down, enemyMask );
+     Vector2 lineCastPosition = myTrans.position.toVector2() - myTrans.right.toVector2() * (myWidth/2) + Vector2.up * myHeight;
+        Debug.DrawLine(lineCastPosition, lineCastPosition + Vector2.down*2);
+        bool isGrounded = Physics2D.Linecast(lineCastPosition, lineCastPosition + Vector2.down*2, enemyMask );
+        Debug.DrawLine(lineCastPosition, lineCastPosition - myTrans.right.toVector2()* 0.05f);
+        bool isBlocked = Physics2D.Linecast(lineCastPosition, lineCastPosition - myTrans.right.toVector2()* 0.05f, enemyMask);
 
-        // if no ground turn around
-        if (!isGrounded)
+
+        // if no ground or blocked by wall  turn around
+        if (!isGrounded || isBlocked)
         {
             Vector3 currentRotation = myTrans.eulerAngles;
             currentRotation.y += 180;
