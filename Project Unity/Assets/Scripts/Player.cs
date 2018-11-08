@@ -36,6 +36,8 @@ public class Player : MonoBehaviour {
 
     public GameObject SmokePE;
 
+    public AudioSource yourDefeatIsAtHand;
+    bool hasThretenedDefeat = false;
 
     // Use this for initialization
 
@@ -59,8 +61,27 @@ public class Player : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        if(!timerFrozen)
+        if (!timerFrozen)
+        {
             timer -= Time.deltaTime;
+            if(timer > 15)
+            {
+                hasThretenedDefeat = false;
+            }
+            if(timer < 10)
+            {
+                if (!hasThretenedDefeat)
+                {
+                    hasThretenedDefeat = true;
+                    yourDefeatIsAtHand.Play();
+                }
+            }
+            if(timer < 0)
+            {
+                UnityEngine.SceneManagement.SceneManager.LoadScene("DefeatScene", UnityEngine.SceneManagement.LoadSceneMode.Single);
+                //Invoke("UnityEngine.SceneManagement.SceneManager.LoadScene(DefeatScene, UnityEngine.SceneManagement.LoadSceneMode.Single)", 2f);
+            }
+        }
         if (timerText != null)
         {
             timerText.text = "Time left: " + (int)timer;

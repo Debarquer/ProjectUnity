@@ -14,6 +14,8 @@ public class SaveObject : MonoBehaviour {
     float speechTimerEnabledMax = 1.5f;
     float speechTimerEnabledCurr = 0;
 
+    public GameObject savedSoundGO;
+
 	// Use this for initialization
 	void Start () {
         scoreManager = FindObjectOfType<ScoreManager>();
@@ -53,6 +55,8 @@ public class SaveObject : MonoBehaviour {
         }
 
         player.ChangeScore(5);
+        Instantiate(savedSoundGO);
+
         Destroy(gameObject);
     }
 }

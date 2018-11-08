@@ -32,7 +32,15 @@ public class ScoreManager : MonoBehaviour {
             if(nrOfThingsToSave <= 0)
             {
                 FindObjectOfType<Player>().timerFrozen = true;
-                FindObjectOfType<FancyTimer>().textMeshPro.color = Color.green;
+
+                FancyTimer ft = FindObjectOfType<FancyTimer>();
+                if(ft != null)
+                {
+                    ft.textMeshPro.color = Color.green;
+                    
+                }
+
+                GetComponent<AudioSource>().Play();
             }
         }
     }

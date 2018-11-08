@@ -6817,6 +6817,19 @@ Prefab:
       propertyPath: m_LocalPosition.x
       value: -16.55
       objectReference: {fileID: 0}
+    - target: {fileID: 4826036752683366, guid: a2c94ee8829e5c84c907d435ca1b49c3, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -7.88
+      objectReference: {fileID: 0}
+    - target: {fileID: 4826036752683366, guid: a2c94ee8829e5c84c907d435ca1b49c3, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -16.63
+      objectReference: {fileID: 0}
+    - target: {fileID: 114006075733856698, guid: a2c94ee8829e5c84c907d435ca1b49c3,
+        type: 2}
+      propertyPath: timerFrozen
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a2c94ee8829e5c84c907d435ca1b49c3, type: 2}
   m_IsPrefabAsset: 0

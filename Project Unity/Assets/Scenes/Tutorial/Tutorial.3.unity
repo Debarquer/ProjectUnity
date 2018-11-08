@@ -6983,6 +6983,7 @@ MonoBehaviour:
   textMesh: {fileID: 722419396}
   maxSize: 96
   normalSize: 64
+  increments: 0.2
 --- !u!114 &722419395
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16969,6 +16970,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1834619190}
   - component: {fileID: 1834619191}
+  - component: {fileID: 1834619192}
   m_Layer: 0
   m_Name: ScoreManager
   m_TagString: Untagged
@@ -17002,6 +17004,101 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nrOfThingsToSaveText: {fileID: 1200900313}
   thingsToSave: []
+--- !u!82 &1834619192
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1834619189}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 8dcf08a59a388334a97e89a4737cff44, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &1844243624
 Prefab:
   m_ObjectHideFlags: 0
@@ -17893,7 +17990,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: more villagers to advance
+  m_text: more villager(s) to advance
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 742af3dee9c161d49bb775c183620e3c, type: 2}
   m_sharedMaterial: {fileID: 21053266952826452, guid: 742af3dee9c161d49bb775c183620e3c,
@@ -17962,10 +18059,10 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 0}
-    characterCount: 25
+    characterCount: 27
     spriteCount: 0
     spaceCount: 3
-    wordCount: 4
+    wordCount: 5
     linkCount: 0
     lineCount: 1
     pageCount: 1
@@ -20140,6 +20237,19 @@ Prefab:
     - target: {fileID: 4032932130805326, guid: a2c94ee8829e5c84c907d435ca1b49c3, type: 2}
       propertyPath: m_LocalPosition.x
       value: -16.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 4826036752683366, guid: a2c94ee8829e5c84c907d435ca1b49c3, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -8.51
+      objectReference: {fileID: 0}
+    - target: {fileID: 4826036752683366, guid: a2c94ee8829e5c84c907d435ca1b49c3, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -16.11
+      objectReference: {fileID: 0}
+    - target: {fileID: 114006075733856698, guid: a2c94ee8829e5c84c907d435ca1b49c3,
+        type: 2}
+      propertyPath: timerFrozen
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a2c94ee8829e5c84c907d435ca1b49c3, type: 2}
