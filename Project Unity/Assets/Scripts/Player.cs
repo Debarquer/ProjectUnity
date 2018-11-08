@@ -18,7 +18,9 @@ public class Player : MonoBehaviour {
     Transform myTrans;
 
     public AudioSource jumpSound;
+    public AudioSource hitSound;
 
+    public CameraShake cameraShake;
 
     float jumpMaxTime;
     float jumpTime;
@@ -171,10 +173,12 @@ public class Player : MonoBehaviour {
     {
         if (collision.gameObject.tag == "Enemy")
         {
+            StartCoroutine(cameraShake.Shake(.15f, .4f));
+            hitSound.Play();
             Destroy(collision.gameObject);
             FindObjectOfType<Player>().ChangeTimer(-5f);
             Instantiate(SmokePE, collision.transform.position, collision.transform.rotation);
         }
-    }
+    }   
 
 }
