@@ -15,6 +15,7 @@ public class Player : MonoBehaviour {
     public int score;
 
     Rigidbody2D rb;
+    Transform myTrans;
 
     float jumpMaxTime;
     float jumpTime;
@@ -55,119 +56,83 @@ public class Player : MonoBehaviour {
             timer -= Time.deltaTime;
             timerText.text = "Time left: " + (int)timer;
         }
-        
+    
 
-        if (false)//Application.platform == RuntimePlatform.Android
+         
+        float x = CrossPlatformInputManager.GetAxisRaw("Horizontal") * 5;
+
+        rb.velocity = new Vector2(x, rb.velocity.y);
+
+        if (rb.velocity.y < 0 )
         {
-            float x = UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager.GetAxisRaw("Horizontal") * 5;
+            _animator.SetBool("IsJumping", false);
+            _animator.SetBool("IsFalling", true);
+        }
+        else
+        {
+            _animator.SetBool("IsFalling", false);
 
-            rb.velocity = new Vector2(x, rb.velocity.y);
-
-            if (UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager.GetButtonDown("Jump") && isJumping == false)
-            {
-                isJumping = true;
-                jumpMaxTime = Time.time + extraJumpTime;
-                jumpTime = 0;
-                jumpPower = extraJumpPower;
-            }
-
-            if (UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager.GetButton("Jump") && Time.time < jumpMaxTime)
-            {
-                jumpTime += Time.deltaTime;
-
-                rb.velocity = new Vector2(rb.velocity.x, jumpPower);
-
-                if (jumpTime < extraJumpAscendTime)
-                {
-                    if (jumpPower < 6)
-                    {
-                        jumpPower *= 1.3f;
-                    }
-                }
-                else
-                {
-                    jumpPower *= 0.8f;
-                }
-            }
-
-            if (UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager.GetButtonUp("Jump"))
-            {
-                jumpMaxTime = 0;
-            }
+        }
+        if (x > 0 ) // 
+        {
+            transform.eulerAngles = new Vector3(0, 0, 0);
+            _animator.SetBool("IsRunning", true);
+        }
+        else if (x < 0)
+        {
+            transform.eulerAngles = new Vector3(0, 180, 0);
+            _animator.SetBool("IsRunning", true);
+        }
+        else if (x == 0)
+        {
+            _animator.SetBool("IsRunning", false);
+           
         }
 
 
-        
-        else
+
+        if (CrossPlatformInputManager.GetButtonDown("Jump") && isJumping == false)
         {
-         
-            float x = CrossPlatformInputManager.GetAxisRaw("Horizontal") * 5;
+            _animator.SetBool("IsJumping", true);
+            isJumping = true;
+            jumpMaxTime = Time.time + extraJumpTime;
+            jumpTime = 0;
+            jumpPower = extraJumpPower;
+        }
 
-            rb.velocity = new Vector2(x, rb.velocity.y);
+        if (CrossPlatformInputManager.GetButton("Jump") && Time.time < jumpMaxTime)
+        {
+            jumpTime += Time.deltaTime;
 
-            if (rb.velocity.y < 0 )
+            rb.velocity = new Vector2(rb.velocity.x, jumpPower);
+
+            if (jumpTime < extraJumpAscendTime)
             {
-                _animator.SetBool("IsJumping", false);
-                _animator.SetBool("IsFalling", true);
+                if (jumpPower < 6)
+                {
+                    jumpPower *= 1.3f;
+                }
             }
             else
             {
-                _animator.SetBool("IsFalling", false);
-
+                jumpPower *= 0.8f;
             }
-            if (x != 0 ) // 
-            {
-                transform.localScale = new Vector2(Mathf.Sign(x), 1);
-                _animator.SetBool("IsRunning", true);
-            }
-            else if (x == 0)
-            {
-                _animator.SetBool("IsRunning", false);
-           
-            }
+        }
 
-
-
-            if (CrossPlatformInputManager.GetButtonDown("Jump") && isJumping == false)
-            {
-                _animator.SetBool("IsJumping", true);
-                isJumping = true;
-                jumpMaxTime = Time.time + extraJumpTime;
-                jumpTime = 0;
-                jumpPower = extraJumpPower;
-            }
-
-            if (CrossPlatformInputManager.GetButton("Jump") && Time.time < jumpMaxTime)
-            {
-                jumpTime += Time.deltaTime;
-
-                rb.velocity = new Vector2(rb.velocity.x, jumpPower);
-
-                if (jumpTime < extraJumpAscendTime)
-                {
-                    if (jumpPower < 6)
-                    {
-                        jumpPower *= 1.3f;
-                    }
-                }
-                else
-                {
-                    jumpPower *= 0.8f;
-                }
-            }
-
-            if (CrossPlatformInputManager.GetButtonUp("Jump"))
-            {
-                jumpMaxTime = 0;
-            }
+        if (CrossPlatformInputManager.GetButtonUp("Jump"))
+        {
+            jumpMaxTime = 0;
         }
             
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        isJumping = false;
-        _animator.SetBool("IsJumping", false);
+        if (collision.gameObject.tag != "Bullet")
+        {
+            isJumping = false;
+            _animator.SetBool("IsJumping", false);
+        }
     }
 
     public void ChangeScore(int d)

@@ -47,11 +47,11 @@ public class Fire : MonoBehaviour {
 		
 	}
 
-  private void OnTriggerEnter2D(Collider2D collision)
-    {
-        FindObjectOfType<Player>().ChangeTimer(5f);
-        Destroy(gameObject);
-    }
+  //private void OnTriggerEnter2D(Collider2D collision)
+  //  {
+  //      FindObjectOfType<Player>().ChangeTimer(5f);
+  //      Destroy(gameObject);
+  //  }
 
 
 }
