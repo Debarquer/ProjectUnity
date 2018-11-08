@@ -17,6 +17,9 @@ public class Player : MonoBehaviour {
     Rigidbody2D rb;
     Transform myTrans;
 
+    public AudioSource jumpSound;
+
+
     float jumpMaxTime;
     float jumpTime;
     public bool isJumping;
@@ -95,6 +98,7 @@ public class Player : MonoBehaviour {
 
         if (CrossPlatformInputManager.GetButtonDown("Jump") && isJumping == false)
         {
+            jumpSound.Play();
             _animator.SetBool("IsJumping", true);
             isJumping = true;
             jumpMaxTime = Time.time + extraJumpTime;
