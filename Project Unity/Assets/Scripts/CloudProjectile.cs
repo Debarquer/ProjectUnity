@@ -5,9 +5,10 @@ using UnityEngine;
 public class CloudProjectile : MonoBehaviour {
     public float speed = 10;
     public Rigidbody2D rb;
+    public GameObject SmokePE;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
         //rb = GetComponent<Rigidbody2D>();
         rb.velocity = transform.right * speed;
     }
@@ -25,6 +26,7 @@ public class CloudProjectile : MonoBehaviour {
             Destroy(gameObject);
             Destroy(other.gameObject);
             FindObjectOfType<Player>().ChangeTimer(5f);
+            Instantiate(SmokePE, other.transform.position, other.transform.rotation);
         }
         else if (other.gameObject.tag != "Player")
         {

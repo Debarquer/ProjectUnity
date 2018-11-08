@@ -91,6 +91,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 6
   rb: {fileID: 50618523714407550}
+  SmokePE: {fileID: 1373689303006204, guid: 869aaa8d8d387c14187f562eede599b2, type: 2}
 --- !u!212 &212136333611777748
 SpriteRenderer:
   m_ObjectHideFlags: 1
