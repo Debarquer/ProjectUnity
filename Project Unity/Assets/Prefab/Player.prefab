@@ -220,6 +220,7 @@ MonoBehaviour:
   extraJumpAscendTime: 0.4
   extraJumpPower: 0.25
   androidX: 0
+  SmokePE: {fileID: 1373689303006204, guid: 869aaa8d8d387c14187f562eede599b2, type: 2}
 --- !u!212 &212743626718542304
 SpriteRenderer:
   m_ObjectHideFlags: 1
