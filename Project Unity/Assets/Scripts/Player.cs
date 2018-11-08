@@ -17,6 +17,11 @@ public class Player : MonoBehaviour {
     Rigidbody2D rb;
     Transform myTrans;
 
+    public AudioSource jumpSound;
+    public AudioSource hitSound;
+
+    public CameraShake cameraShake;
+
     float jumpMaxTime;
     float jumpTime;
     public bool isJumping;
@@ -27,6 +32,8 @@ public class Player : MonoBehaviour {
     public float extraJumpPower = 0.55f;
 
     public float androidX = 0;
+
+    public GameObject SmokePE;
 
 
     // Use this for initialization
@@ -93,6 +100,7 @@ public class Player : MonoBehaviour {
 
         if (CrossPlatformInputManager.GetButtonDown("Jump") && isJumping == false)
         {
+            jumpSound.Play();
             _animator.SetBool("IsJumping", true);
             isJumping = true;
             jumpMaxTime = Time.time + extraJumpTime;
@@ -163,11 +171,14 @@ public class Player : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        collision.gameObject.GetComponent<SpriteRenderer>().color = new Color(255, 0, 255);
-    }
+        if (collision.gameObject.tag == "Enemy")
+        {
+            StartCoroutine(cameraShake.Shake(.15f, .4f));
+            hitSound.Play();
+            Destroy(collision.gameObject);
+            FindObjectOfType<Player>().ChangeTimer(-5f);
+            Instantiate(SmokePE, collision.transform.position, collision.transform.rotation);
+        }
+    }   
 
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        collision.gameObject.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255);
-    }
 }
