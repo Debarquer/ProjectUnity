@@ -12,6 +12,7 @@ public class Player : MonoBehaviour {
     public Text scoreText;
 
     public float timer;
+    public bool timerFrozen = false;
     public int score;
 
     Rigidbody2D rb;
@@ -58,7 +59,8 @@ public class Player : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        timer -= Time.deltaTime;
+        if(!timerFrozen)
+            timer -= Time.deltaTime;
         if (timerText != null)
         {
             timerText.text = "Time left: " + (int)timer;

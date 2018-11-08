@@ -27,7 +27,14 @@ public class CloudProjectile : MonoBehaviour {
             Destroy(other.gameObject);
             FindObjectOfType<Player>().ChangeTimer(5f);
             Instantiate(SmokePE, other.transform.position, other.transform.rotation);
-            FindObjectOfType<FancyTimerAnimations>().ExpandAndFade();
+            FancyTimerAnimations[] timerAnimations = FindObjectsOfType<FancyTimerAnimations>();
+            foreach(FancyTimerAnimations fancyTimerAnimation in timerAnimations)
+            {
+                 if(fancyTimerAnimation.gameObject.tag == "Player")
+                {
+                    fancyTimerAnimation.ExpandAndFade(Color.green);
+                }
+            }
         }
         else if (other.gameObject.tag != "Player")
         {

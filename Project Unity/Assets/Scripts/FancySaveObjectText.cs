@@ -21,12 +21,38 @@ public class FancySaveObjectText : MonoBehaviour {
             {
                 if(scoreManager.NrOfTingsToSave > 0)
                 {
-                    textMeshPro.text = "Save "+scoreManager.NrOfTingsToSave+" more villagers to advance";
+                    if (name == "Save")
+                    {
+                        textMeshPro.text = "Save ";
+                    }
+                    if (name == "Number")
+                    {
+                        textMeshPro.text = scoreManager.NrOfTingsToSave.ToString();
+                    }
+                    if (name == "Other")
+                    {
+                        textMeshPro.text = " more villagers to advance";
+                    }
+                    
                 }
                 else
                 {
                     textMeshPro.color = Color.green;
-                    textMeshPro.text = "Mission accomplished";
+                    if (name == "Save")
+                    {
+                        textMeshPro.text = "Save ";
+                        textMeshPro.text = "Mission";
+                    }
+                    if(name == "Number")
+                    {
+                        textMeshPro.text = "";
+                        Destroy(gameObject);
+                    }
+                    if (name == "Other")
+                    {
+                        textMeshPro.text = "Save ";
+                        textMeshPro.text = "accomplished";
+                    }
                 }
             }
         }

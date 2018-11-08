@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class FancyTimer : MonoBehaviour {
 
     Player player;
-    TMPro.TextMeshProUGUI textMeshPro;
+    public TMPro.TextMeshProUGUI textMeshPro;
 
 	// Use this for initialization
 	void Start () {

@@ -9,10 +9,10 @@ public class SaveObject : MonoBehaviour {
     Player player;
     Canvas canvas;
     Text speechText; 
-    public float speechTimerNextMax = 0;
-    public float speechTimerNextCurr = 0;
-    public float speechTimerEnabledMax = 2;
-    public float speechTimerEnabledCurr = 0;
+    float speechTimerNextMax = 0;
+    float speechTimerNextCurr = 0;
+    float speechTimerEnabledMax = 1.5f;
+    float speechTimerEnabledCurr = 0;
 
 	// Use this for initialization
 	void Start () {
@@ -45,12 +45,13 @@ public class SaveObject : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(scoreManager != null)
+        GetComponent<BoxCollider2D>().enabled = false;
+
+        if (scoreManager != null)
         {
             scoreManager.NrOfTingsToSave -= 1;
         }
 
-        GetComponent<BoxCollider2D>().enabled = false;
         player.ChangeScore(5);
         Destroy(gameObject);
     }
