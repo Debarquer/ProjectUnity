@@ -10,11 +10,13 @@ public class LevelSelectButton : MonoBehaviour {
 
     public void OnMouseEnter()
     {
+        graphicsBox.SetActive(true);
         graphicsBox.GetComponent<Image>().sprite = levelSprite;
     }
 
     public void OnMouseExit()
     {
         graphicsBox.GetComponent<Image>().sprite = null;
+        graphicsBox.SetActive(false);
     }
 }
