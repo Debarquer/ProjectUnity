@@ -15,7 +15,8 @@ public class ScoreManager : MonoBehaviour {
         set
         {
             nrOfThingsToSave = value;
-            nrOfThingsToSaveText.text = "Remaining things: " + nrOfThingsToSave;
+            if(nrOfThingsToSaveText != null)
+                nrOfThingsToSaveText.text = "Remaining things: " + nrOfThingsToSave;
         }
     }
 
