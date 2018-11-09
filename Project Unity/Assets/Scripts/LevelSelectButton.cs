@@ -19,4 +19,10 @@ public class LevelSelectButton : MonoBehaviour {
         graphicsBox.GetComponent<Image>().sprite = null;
         graphicsBox.SetActive(false);
     }
+
+    public void Click(string scene)
+    {
+        FindObjectOfType<LevelSelectManager>().LoadScene(scene);
+        Destroy(FindObjectOfType<dontDestroy>().gameObject);
+    }
 }
