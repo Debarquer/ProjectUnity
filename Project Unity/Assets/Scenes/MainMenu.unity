@@ -585,7 +585,8 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'You move by using either <color>WASD</color> or <color>ARROW KEYS</color>
     and jump using <color>SPACE BAR</color>. Defeat enemies by spraying them by pressing
-    <color>CONTROL</color> or the <color>LEFT MOUSE BUTTON</color>.
+    <color>CONTROL</color> or the <color>LEFT MOUSE BUTTON</color>. Enter doors by
+    using <color>E</color>
 
 
     To <color=#00ff00ff>win</color> you must save all the villagers and then reach
@@ -1536,6 +1537,17 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 582983963}
+        m_MethodName: Do
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Cabal
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 582983962}
         m_MethodName: Play
         m_Mode: 1
@@ -1547,15 +1559,15 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 582983963}
-        m_MethodName: Do
-        m_Mode: 5
+      - m_Target: {fileID: 1989673213}
+        m_MethodName: Stop
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Cabal
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -1603,7 +1615,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 0f2231b405e4817499fd30c86002628d, type: 3}
+  m_audioClip: {fileID: 8300000, guid: eb4cc36936b7aa94badb8442f1a2ae1e, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -6560,7 +6572,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 0f2231b405e4817499fd30c86002628d, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 68e705d8590c1b2409a337421f888d9d, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -6685,6 +6697,17 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1989673212}
+        m_MethodName: Do
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: EVA
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1989673213}
         m_MethodName: Play
         m_Mode: 1
@@ -6696,15 +6719,15 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1989673212}
-        m_MethodName: Do
-        m_Mode: 5
+      - m_Target: {fileID: 582983962}
+        m_MethodName: Stop
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: EVA
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
