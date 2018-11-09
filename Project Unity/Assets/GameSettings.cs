@@ -12,13 +12,20 @@ public class GameSettings : MonoBehaviour {
 	void Start () {
         DontDestroyOnLoad(this.gameObject);
 
-        string settingsString = "Current voice pack: " + (alternateVoicePack ? "Eva" : "Cabal")
+        string settingsString = "Current voice pack: " + (alternateVoicePack ? "Eva" : "Cabal");
         audioSettingsText.text = settingsString;
-
     }
 	
 	// Update is called once per frame
 	void Update () {
 		
 	}
+
+    public void ChangeVoicePack()
+    {
+        alternateVoicePack = !alternateVoicePack;
+
+        string settingsString = "Current voice pack: " + (alternateVoicePack ? "Eva" : "Cabal");
+        audioSettingsText.text = settingsString;
+    }
 }

@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class ScoreManager : MonoBehaviour {
 
+    public AudioClip missionAccomplished;
+    public AudioClip missionAccomplishedAlt;
+
     private int nrOfThingsToSave;
     public int NrOfTingsToSave
     {
@@ -52,6 +55,15 @@ public class ScoreManager : MonoBehaviour {
     void Start () {
         thingsToSave = GameObject.FindGameObjectsWithTag("SaveMe");
         NrOfTingsToSave = thingsToSave.Length;
+
+        if (FindObjectOfType<GameSettings>().alternateVoicePack)
+        {
+            GetComponent<AudioSource>().clip = missionAccomplishedAlt;
+        }
+        else
+        {
+            GetComponent<AudioSource>().clip = missionAccomplished;
+        }
 	}
 	
 	// Update is called once per frame
