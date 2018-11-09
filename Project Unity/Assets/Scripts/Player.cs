@@ -195,12 +195,12 @@ public class Player : MonoBehaviour {
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Enemy")
-        {
-            StartCoroutine(cameraShake.Shake(.15f, .4f));
+        {           
             hitSound.Play();
             Destroy(collision.gameObject);
             FindObjectOfType<Player>().ChangeTimer(-5f);
             Instantiate(SmokePE, collision.transform.position, collision.transform.rotation);
+            StartCoroutine(cameraShake.Shake(.15f, .4f));
         }
     }   
 
