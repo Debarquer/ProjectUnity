@@ -122,6 +122,7 @@ GameObject:
   m_Component:
   - component: {fileID: 56446005}
   - component: {fileID: 56446004}
+  - component: {fileID: 56446006}
   m_Layer: 0
   m_Name: DefeatSound
   m_TagString: Untagged
@@ -237,6 +238,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &56446006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 56446003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b94dde17cf1acd4e916b1ab584b55f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defeatClip: {fileID: 8300000, guid: e7f17f1ecddca694ca68acc74b2a9195, type: 3}
+  defeatClipAlt: {fileID: 8300000, guid: 30b6267d52bfe7f4b9e63eca86a4136e, type: 3}
 --- !u!1 &71998731
 GameObject:
   m_ObjectHideFlags: 0
@@ -270,7 +284,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.2784314, g: 0.2784314, b: 0.2784314, a: 0}
   m_projectionMatrixMode: 1
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
