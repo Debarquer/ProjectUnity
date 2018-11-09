@@ -17028,8 +17028,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd143467af5dfd941a71309bc733f1bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  missionAccomplished: {fileID: 0}
-  missionAccomplishedAlt: {fileID: 0}
+  missionAccomplished: {fileID: 8300000, guid: 8dcf08a59a388334a97e89a4737cff44, type: 3}
+  missionAccomplishedAlt: {fileID: 8300000, guid: 3b0650635566c9540961b0fb8b7936c2,
+    type: 3}
   nrOfThingsToSaveText: {fileID: 1200900313}
   thingsToSave: []
 --- !u!82 &1834619192
