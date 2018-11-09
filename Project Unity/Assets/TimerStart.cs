@@ -7,6 +7,8 @@ public class TimerStart : MonoBehaviour {
     public AudioClip timerStartClip;
     public AudioClip timerStartClipAlt;
 
+    bool hasStartedTimer = false;
+
     private void Start()
     {
         if (FindObjectOfType<GameSettings>().alternateVoicePack)
@@ -25,13 +27,15 @@ public class TimerStart : MonoBehaviour {
     {
         if(collision.tag == "Player")
         {
-            GetComponent<AudioSource>().Play();
+            if (!hasStartedTimer)
+            {
+                hasStartedTimer = true;
+                GetComponent<AudioSource>().Play();
+            }
 
             if (FindObjectOfType<Player>().timerFrozen)
             {
                 FindObjectOfType<Player>().timerFrozen = false;
-
-                GetComponent<AudioSource>().Play();
             }   
         }
     }
