@@ -36,6 +36,8 @@ public class Player : MonoBehaviour {
 
     public GameObject SmokePE;
 
+    public AudioClip yourDefeatIsAtHandClip;
+    public AudioClip yourDefeatIsAtHandClipAlt;
     public AudioSource yourDefeatIsAtHand;
     bool hasThretenedDefeat = false;
 
@@ -45,6 +47,17 @@ public class Player : MonoBehaviour {
 
         rb = GetComponent<Rigidbody2D>();
         rb.gravityScale = 2f;
+
+        if (FindObjectOfType<GameSettings>().alternateVoicePack)
+        {
+            //EVA
+            yourDefeatIsAtHand.clip = yourDefeatIsAtHandClipAlt;
+        }
+        else
+        {
+            //Cabal
+            yourDefeatIsAtHand.clip = yourDefeatIsAtHandClip;
+        }
     }
 
     private Animator _animator;

@@ -13181,6 +13181,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c9e79d0bfa9b4241851243924220bdd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timerStartClip: {fileID: 8300000, guid: 9648ef0f5a7368a44a169c44417db546, type: 3}
+  timerStartClipAlt: {fileID: 8300000, guid: cbef4ea782bce30409b16c949a3a440c, type: 3}
 --- !u!82 &1714775695
 AudioSource:
   m_ObjectHideFlags: 0

@@ -122,6 +122,7 @@ GameObject:
   m_Component:
   - component: {fileID: 35716266}
   - component: {fileID: 35716265}
+  - component: {fileID: 35716267}
   m_Layer: 0
   m_Name: VictorySound
   m_TagString: Untagged
@@ -139,7 +140,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: bce672c032accec4aa684762cd0e18de, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -237,6 +238,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &35716267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 35716264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe2084e0236d4d045b98fbb21d413d57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  victoryClip: {fileID: 8300000, guid: bce672c032accec4aa684762cd0e18de, type: 3}
+  victoryClipAlt: {fileID: 8300000, guid: 13244ca494043014fac11af6092a5ed3, type: 3}
 --- !u!1 &297765787
 GameObject:
   m_ObjectHideFlags: 0

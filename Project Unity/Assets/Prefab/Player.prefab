@@ -593,7 +593,11 @@ MonoBehaviour:
   extraJumpAscendTime: 0.4
   extraJumpPower: 0.25
   androidX: 0
-  SmokePE: {fileID: 0}
+  SmokePE: {fileID: 1373689303006204, guid: 869aaa8d8d387c14187f562eede599b2, type: 2}
+  yourDefeatIsAtHandClip: {fileID: 8300000, guid: 301729cf8ef72a34ebb571e80c7c9a53,
+    type: 3}
+  yourDefeatIsAtHandClipAlt: {fileID: 8300000, guid: 01b5778920fab7b4fbcd07c159b46f68,
+    type: 3}
   yourDefeatIsAtHand: {fileID: 82788004526846448}
 --- !u!114 &114978005210869258
 MonoBehaviour:

@@ -10,10 +10,24 @@ public class GameSettings : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        DontDestroyOnLoad(this.gameObject);
+        GameSettings[] gs = FindObjectsOfType<GameSettings>();
+        foreach(GameSettings gameSettings in gs)
+        {
+            if(gameSettings != this)
+            {
+                DestroyImmediate(this.gameObject);
+            }
+            else
+            {
+                DontDestroyOnLoad(this.gameObject);
 
-        string settingsString = "Current voice pack: " + (alternateVoicePack ? "Eva" : "Cabal");
-        audioSettingsText.text = settingsString;
+                if(audioSettingsText != null)
+                {
+                    string settingsString = "Current voice pack: " + (alternateVoicePack ? "Eva" : "Cabal");
+                    audioSettingsText.text = settingsString;
+                }
+            }
+        }
     }
 	
 	// Update is called once per frame
@@ -21,10 +35,24 @@ public class GameSettings : MonoBehaviour {
 		
 	}
 
-    public void ChangeVoicePack()
+    public void ChangeVoicePack(string voicePack)
     {
-        alternateVoicePack = !alternateVoicePack;
+        if(voicePack == "EVA" || voicePack == "Alternate")
+        {
+            alternateVoicePack = true;
+        }
+        else
+        {
+            alternateVoicePack = false;
+        }
 
+        string settingsString = "Current voice pack: " + (alternateVoicePack ? "Eva" : "Cabal");
+        audioSettingsText.text = settingsString;
+    }
+
+    public void SetAudioText(UnityEngine.UI.Text text)
+    {
+        audioSettingsText = text;
         string settingsString = "Current voice pack: " + (alternateVoicePack ? "Eva" : "Cabal");
         audioSettingsText.text = settingsString;
     }
