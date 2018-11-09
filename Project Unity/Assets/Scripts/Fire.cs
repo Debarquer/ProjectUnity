@@ -26,10 +26,10 @@ public class Fire : MonoBehaviour {
     private void FixedUpdate()
     {
         // check if there is ground infront
-     Vector2 lineCastPosition = myTrans.position.toVector2() - myTrans.right.toVector2() * (myWidth/2) + Vector2.up * myHeight;
-        //Debug.DrawLine(lineCastPosition, lineCastPosition + Vector2.down*2);
-        bool isGrounded = Physics2D.Linecast(lineCastPosition, lineCastPosition + Vector2.down*2, enemyMask );
-        //Debug.DrawLine(lineCastPosition, lineCastPosition - myTrans.right.toVector2()* 0.05f);
+     Vector2 lineCastPosition = myTrans.position.toVector2() - myTrans.right.toVector2() * (myWidth/2) + Vector2.up /2;
+        Debug.DrawLine(lineCastPosition, lineCastPosition + Vector2.down);
+        bool isGrounded = Physics2D.Linecast(lineCastPosition, lineCastPosition + Vector2.down, enemyMask );
+        Debug.DrawLine(lineCastPosition, lineCastPosition - myTrans.right.toVector2()* 0.05f);
         bool isBlocked = Physics2D.Linecast(lineCastPosition, lineCastPosition - myTrans.right.toVector2()* 0.05f, enemyMask);
 
 
