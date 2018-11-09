@@ -17,11 +17,17 @@ public class EndLevelCollider : MonoBehaviour {
 		
 	}
 
+    public void LoadLevel()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene(nextScene, UnityEngine.SceneManagement.LoadSceneMode.Single);
+
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.tag == "Player" && collision.gameObject.GetComponent<Player>() != null)
         {
-            UnityEngine.SceneManagement.SceneManager.LoadScene(nextScene, UnityEngine.SceneManagement.LoadSceneMode.Single);
+            LoadLevel();
         }
     }
 }

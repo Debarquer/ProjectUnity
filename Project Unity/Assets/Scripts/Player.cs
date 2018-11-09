@@ -12,13 +12,16 @@ public class Player : MonoBehaviour {
     public Text scoreText;
 
     public float timer;
+    public bool timerFrozen = false;
     public int score;
 
     Rigidbody2D rb;
     Transform myTrans;
 
     public AudioSource jumpSound;
+    public AudioSource hitSound;
 
+    public CameraShake cameraShake;
 
     float jumpMaxTime;
     float jumpTime;
@@ -33,6 +36,8 @@ public class Player : MonoBehaviour {
 
     public GameObject SmokePE;
 
+    public AudioSource yourDefeatIsAtHand;
+    bool hasThretenedDefeat = false;
 
     // Use this for initialization
 
@@ -56,7 +61,27 @@ public class Player : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        timer -= Time.deltaTime;
+        if (!timerFrozen)
+        {
+            timer -= Time.deltaTime;
+            if(timer > 15)
+            {
+                hasThretenedDefeat = false;
+            }
+            if(timer < 10)
+            {
+                if (!hasThretenedDefeat)
+                {
+                    hasThretenedDefeat = true;
+                    yourDefeatIsAtHand.Play();
+                }
+            }
+            if(timer < 0)
+            {
+                UnityEngine.SceneManagement.SceneManager.LoadScene("DefeatScene", UnityEngine.SceneManagement.LoadSceneMode.Single);
+                //Invoke("UnityEngine.SceneManagement.SceneManager.LoadScene(DefeatScene, UnityEngine.SceneManagement.LoadSceneMode.Single)", 2f);
+            }
+        }
         if (timerText != null)
         {
             timerText.text = "Time left: " + (int)timer;
@@ -171,10 +196,12 @@ public class Player : MonoBehaviour {
     {
         if (collision.gameObject.tag == "Enemy")
         {
+            StartCoroutine(cameraShake.Shake(.15f, .4f));
+            hitSound.Play();
             Destroy(collision.gameObject);
             FindObjectOfType<Player>().ChangeTimer(-5f);
             Instantiate(SmokePE, collision.transform.position, collision.transform.rotation);
         }
-    }
+    }   
 
 }

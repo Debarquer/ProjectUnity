@@ -14,9 +14,34 @@ public class ScoreManager : MonoBehaviour {
         }
         set
         {
+            Debug.Log("changing nr of villagers from a -> b" + nrOfThingsToSave + "->" + value);
+
             nrOfThingsToSave = value;
             if(nrOfThingsToSaveText != null)
-                nrOfThingsToSaveText.text = "Remaining things: " + nrOfThingsToSave;
+                nrOfThingsToSaveText.text = "Remaining things: " + value;
+
+            FancyTimerAnimations[] timerAnimations = FindObjectsOfType<FancyTimerAnimations>();
+            foreach (FancyTimerAnimations fancyTimerAnimation in timerAnimations)
+            {
+                if (fancyTimerAnimation.gameObject.tag == "Enemy")
+                {
+                    fancyTimerAnimation.ExpandAndFade(Color.green);
+                }
+            }
+
+            if(nrOfThingsToSave <= 0)
+            {
+                FindObjectOfType<Player>().timerFrozen = true;
+
+                FancyTimer ft = FindObjectOfType<FancyTimer>();
+                if(ft != null)
+                {
+                    ft.textMeshPro.color = Color.green;
+                    
+                }
+
+                GetComponent<AudioSource>().Play();
+            }
         }
     }
 
